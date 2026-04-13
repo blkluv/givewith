@@ -1,0 +1,30 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Users: read/write own document only
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Charities: public read, server-only write
+    match /charities/{charityId} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    // Donations: donors read own, server-only write
+    match /donations/{donationId} {
+      allow read: if request.auth != null &&
+        resource.data.donorId == request.auth.uid;
+      allow write: if false;
+    }
+
+    // Chat sessions: users read/write own sessions
+    match /chatSessions/{sessionId} {
+      allow read, write: if request.auth != null &&
+        resource.data.userId == request.auth.uid;
+      allow create: if request.auth != null &&
+        request.resource.data.userId == request.auth.uid;
+    }
+  }
+}

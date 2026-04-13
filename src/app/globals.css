@@ -1,0 +1,280 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+  GiveWithLocus — editorial-dark design system
+  Adapted from Locus (paywithlocus.com) with charity-warmth overlay:
+  - lime accent = Locus DNA
+  - cream = human warmth (tactile, paper/envelope/receipt)
+  - sharp zero-radius cards, Geist UI + Instrument Serif display italic
+*/
+
+@theme inline {
+  /* Fonts */
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-geist-sans);
+  --font-editorial: var(--font-instrument-serif);
+
+  /* Semantic color tokens (Tailwind bg, text, border consumers) */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+
+  /* Direct hex tokens for non-semantic, brand-specific surfaces */
+  --color-cream: #e8dfc4;
+  --color-cream-muted: #e8dfc41a;
+  --color-page: #0f0f10;
+  --color-content: #141414;
+  --color-surface: #1b1b1c;
+  --color-surface-hover: #262627;
+  --color-surface-muted: #222223;
+  --color-border-subtle: #2a2a2b;
+  --color-border-strong: #3a3a3b;
+  --color-lime: #d7ff4b;
+  --color-lime-hover: #b6c927;
+  --color-lime-subtle: #d7ff4b1f;
+
+  /* Sidebar */
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Radius — sharp corners (Locus DNA). Pills/toggles use radius-full. */
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 2px;
+  --radius-2xl: 2px;
+  --radius-3xl: 2px;
+  --radius-4xl: 2px;
+}
+
+/* Dark theme (canonical and only) — warm charcoal, NOT pure black */
+:root,
+.dark {
+  --background: #0f0f10;
+  --foreground: #fdfdfd;
+  --card: #1b1b1c;
+  --card-foreground: #fdfdfd;
+  --popover: #1b1b1c;
+  --popover-foreground: #fdfdfd;
+  --primary: #d7ff4b;
+  --primary-foreground: #0f0f10;
+  --secondary: #222223;
+  --secondary-foreground: #c7c8ca;
+  --muted: #222223;
+  --muted-foreground: #7a7a7a;
+  --accent: #d7ff4b;
+  --accent-foreground: #0f0f10;
+  --destructive: #ef4444;
+  --border: #2a2a2b;
+  --input: #262627;
+  --ring: #d7ff4b;
+  --brand: #d7ff4b;
+  --brand-foreground: #0f0f10;
+  --success: #4ade80;
+  --success-foreground: #052e16;
+  --warning: #facc15;
+  --warning-foreground: #1c1400;
+  --radius: 0;
+  --sidebar: #141414;
+  --sidebar-foreground: #fdfdfd;
+  --sidebar-primary: #d7ff4b;
+  --sidebar-primary-foreground: #0f0f10;
+  --sidebar-accent: #262627;
+  --sidebar-accent-foreground: #fdfdfd;
+  --sidebar-border: #2a2a2b;
+  --sidebar-ring: #d7ff4b;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "ss01", "cv11";
+  }
+  html {
+    @apply font-sans;
+  }
+  /* Scrollbar — subtle, editorial */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2a2a2b;
+    border-radius: 0;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3a3a3b;
+  }
+  /* Selection — lime wash */
+  ::selection {
+    background: #d7ff4b40;
+    color: #fdfdfd;
+  }
+}
+
+/* Typography scale — editorial weights, generous leading */
+@layer utilities {
+  .font-editorial {
+    font-family: var(--font-editorial), Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+  }
+  /* Brand wordmark — italic serif at UI scale (subheading size).
+     Kept as its own rule so `.type-subheading` (which forces font-sans)
+     can't override font-family. */
+  .type-wordmark {
+    font-family: var(--font-editorial), Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+  .type-wordmark-lg {
+    font-family: var(--font-editorial), Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+  .type-brand-hero {
+    font-family: var(--font-editorial), Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(48px, 8vw, 88px);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+  }
+  .type-brand-quote {
+    font-family: var(--font-editorial), Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(20px, 2.4vw, 28px);
+    line-height: 1.35;
+  }
+  .type-display-xl {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    font-size: clamp(36px, 5vw, 56px);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+  }
+  .type-display-lg {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    font-size: clamp(28px, 3.5vw, 40px);
+    line-height: 1.12;
+    letter-spacing: -0.015em;
+  }
+  .type-heading {
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 1.3;
+    letter-spacing: -0.005em;
+  }
+  .type-subheading {
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.4;
+  }
+  .type-body-lg {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.55;
+  }
+  .type-body {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.55;
+  }
+  .type-body-sm {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .type-caption {
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 1.4;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .type-mono {
+    font-family: var(--font-mono);
+    font-weight: 400;
+    font-variant-numeric: tabular-nums;
+  }
+  /* Architectural gutter rule — 1px vertical line (used in (main) layout) */
+  .gutter-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--color-border);
+    z-index: 1;
+    pointer-events: none;
+  }
+  /* Lime underline link */
+  .link-lime {
+    color: var(--color-lime);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.15s ease-out;
+  }
+  .link-lime:hover {
+    border-bottom-color: var(--color-lime);
+  }
+  /* Cream-filled input surface (Locus login DNA) */
+  .surface-cream {
+    background: var(--color-cream);
+    color: #0f0f10;
+  }
+  .surface-cream::placeholder {
+    color: #0f0f1080;
+  }
+}

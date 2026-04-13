@@ -1,0 +1,68 @@
+# Dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# Next.js
+/.next/
+/out/
+/build
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Firebase
+.firebase/
+firebase-debug.log
+firestore-debug.log
+ui-debug.log
+database-debug.log
+
+# Keys and credentials (safety net)
+*credentials*.json
+*serviceAccount*.json
+*private-key*.json
+*.pem
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Vercel
+.vercel
+
+# Testing
+/coverage
+
+# Keep .env.example committed
+!.env.example
+
+# Internal / working docs (not for public repo)
+CLAUDE.md
+todo.md
+AGENTS.md
+GEMINI.md
+.cursorrules
+.claude/
+DEPLOY.md

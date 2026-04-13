@@ -1,0 +1,82 @@
+/*
+ * Thesys C1 / Crayon UI overrides.
+ *
+ * The Crayon ThemeProvider now does most of the heavy lifting (see
+ * src/lib/crayon-theme.ts). These rules are the safety net for visual
+ * concerns the Theme API doesn't expose — layout sizing + consistency.
+ */
+
+/* Root chat shell: fill the parent container exactly */
+.crayon-shell,
+.crayon-shell-root,
+.crayon-shell-container,
+.crayon-chat,
+.crayon-chat-root {
+  height: 100%;
+  width: 100%;
+}
+
+/* Belt-and-braces: force flat corners on any Crayon element that might
+   still pick up a non-zero radius from their internal styles. */
+[class*="crayon-card"],
+[class*="crayon-button"]:not([class*="toggle"]):not([class*="switch"]),
+[class*="crayon-input"],
+[class*="crayon-panel"],
+[class*="crayon-modal"],
+[class*="crayon-popover"],
+[class*="crayon-menu"],
+[class*="crayon-callout"],
+[class*="crayon-shell-thread-message"] {
+  border-radius: 0 !important;
+}
+
+/* Keep pill/toggle shapes circular */
+[class*="crayon-pill"],
+[class*="crayon-toggle"],
+[class*="crayon-switch"],
+[class*="crayon-avatar"],
+[class*="crayon-chip"] {
+  border-radius: 9999px !important;
+}
+
+/* Callout components — the LLM renders these for warnings/info/success.
+   We remap their colors to our palette so the chat reads as one visual system. */
+
+/* Info callout (generic info / wallet-address blocks): lime accent */
+[class*="callout-info"],
+[class*="callout--info"],
+[data-variant="info"] {
+  background-color: rgba(215, 255, 75, 0.04) !important;
+  border-left-color: #d7ff4b !important;
+}
+[class*="callout-info"] [class*="heading"],
+[class*="callout-info"] [class*="title"],
+[class*="callout--info"] [class*="heading"],
+[class*="callout--info"] [class*="title"] {
+  color: #d7ff4b !important;
+}
+
+/* Danger callout: subtle red wash, not blaring */
+[class*="callout-danger"],
+[class*="callout--danger"],
+[data-variant="danger"] {
+  background-color: rgba(239, 68, 68, 0.06) !important;
+  border-left-color: rgba(239, 68, 68, 0.6) !important;
+}
+
+/* Success callout: muted emerald */
+[class*="callout-success"],
+[class*="callout--success"],
+[data-variant="success"] {
+  background-color: rgba(74, 222, 128, 0.06) !important;
+  border-left-color: rgba(74, 222, 128, 0.6) !important;
+}
+
+/* Alert callout: muted amber */
+[class*="callout-alert"],
+[class*="callout--alert"],
+[class*="callout-warning"],
+[data-variant="warning"] {
+  background-color: rgba(250, 204, 21, 0.06) !important;
+  border-left-color: rgba(250, 204, 21, 0.6) !important;
+}

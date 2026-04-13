@@ -1,0 +1,78 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "charities",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "causes", "arrayConfig": "CONTAINS" },
+        { "fieldPath": "impactScore", "order": "DESCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "charities",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "region", "order": "ASCENDING" },
+        { "fieldPath": "impactScore", "order": "DESCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "charities",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "causes", "arrayConfig": "CONTAINS" },
+        { "fieldPath": "overheadRatio", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "charities",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "region", "order": "ASCENDING" },
+        { "fieldPath": "overheadRatio", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "charities",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "causes", "arrayConfig": "CONTAINS" },
+        { "fieldPath": "fundingRaised", "order": "DESCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "charities",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "region", "order": "ASCENDING" },
+        { "fieldPath": "fundingRaised", "order": "DESCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "donations",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "charityId", "order": "ASCENDING" },
+        { "fieldPath": "status", "order": "ASCENDING" },
+        { "fieldPath": "createdAt", "order": "DESCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "donations",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "donorId", "order": "ASCENDING" },
+        { "fieldPath": "createdAt", "order": "DESCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "donations",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "donorId", "order": "ASCENDING" },
+        { "fieldPath": "status", "order": "ASCENDING" }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}

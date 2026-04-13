@@ -1,0 +1,50 @@
+runConfig:
+  maxInstances: 3
+
+env:
+  - variable: NEXT_PUBLIC_FIREBASE_API_KEY
+    value: AIzaSyDrZZBcCFfOnlCgM5m_2AyK89Uhm1SJPd0
+    availability:
+      - BUILD
+      - RUNTIME
+  - variable: NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN
+    value: givewithlocus.firebaseapp.com
+    availability:
+      - BUILD
+      - RUNTIME
+  - variable: NEXT_PUBLIC_FIREBASE_PROJECT_ID
+    value: givewithlocus
+    availability:
+      - BUILD
+      - RUNTIME
+  - variable: NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
+    value: givewithlocus.firebasestorage.app
+    availability:
+      - BUILD
+      - RUNTIME
+  - variable: NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID
+    value: "242369474222"
+    availability:
+      - BUILD
+      - RUNTIME
+  - variable: NEXT_PUBLIC_FIREBASE_APP_ID
+    value: "1:242369474222:web:6ebc3a5f6555faf279473f"
+    availability:
+      - BUILD
+      - RUNTIME
+  - variable: NEXT_PUBLIC_APP_URL
+    value: https://givewithlocus--givewithlocus.us-central1.hosted.app
+    availability:
+      - BUILD
+      - RUNTIME
+  - variable: NEXT_PUBLIC_LOCUS_CHECKOUT_URL
+    value: https://checkout.paywithlocus.com
+    availability:
+      - BUILD
+      - RUNTIME
+  - variable: LOCUS_PLATFORM_API_KEY
+    secret: locus-platform-api-key
+  - variable: ENCRYPTION_KEY
+    secret: encryption-key
+  - variable: THESYS_API_KEY
+    secret: thesys-api-key

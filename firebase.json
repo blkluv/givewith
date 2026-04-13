@@ -1,0 +1,36 @@
+{
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "apphosting": {
+    "backendId": "givewithlocus",
+    "rootDir": "/",
+    "ignore": [
+      "node_modules",
+      ".git",
+      ".next",
+      "firebase-debug.log",
+      "firebase-debug.*.log*",
+      "*.tsbuildinfo",
+      ".env.local",
+      ".env",
+      "CLAUDE.md",
+      "todo.md"
+    ]
+  },
+  "hosting": {
+    "site": "givewithlocus",
+    "public": "public-hosting-stub",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "rewrites": [
+      {
+        "source": "**",
+        "run": {
+          "serviceId": "givewithlocus",
+          "region": "us-central1"
+        }
+      }
+    ]
+  }
+}
