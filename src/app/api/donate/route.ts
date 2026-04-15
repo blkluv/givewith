@@ -66,6 +66,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({
       sessionId: session.id,
+      checkoutUrl: session.checkoutUrl,
       donationId: donationRef.id,
     });
   } catch (error: unknown) {

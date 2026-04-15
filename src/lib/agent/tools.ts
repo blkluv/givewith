@@ -243,7 +243,8 @@ export function buildAgentTools(
           await new Promise((r) => setTimeout(r, 2000));
           try {
             const txs = await getTransactions(ctx.userApiKey, { limit: 10 });
-            const match = txs.find((t) => t.transaction_id === result.transaction_id);
+            // Listing uses `id`; /pay/send returns `transaction_id`. Same value, different field name.
+            const match = txs.find((t) => t.id === result.transaction_id);
             if (match) {
               finalStatus = match.status;
               finalTxHash = match.tx_hash || null;

@@ -4,6 +4,7 @@ import { LocusCheckout } from "@withlocus/checkout-react";
 
 interface CheckoutWrapperProps {
   sessionId: string;
+  checkoutUrl?: string;
   onSuccess: (data: {
     sessionId: string;
     amount: string;
@@ -18,13 +19,19 @@ interface CheckoutWrapperProps {
 
 export function CheckoutWrapper({
   sessionId,
+  checkoutUrl: checkoutUrlProp,
   onSuccess,
   onCancel,
   onError,
 }: CheckoutWrapperProps) {
+  // Prefer the checkoutUrl returned by the API (env-independent, always
+  // matches the environment the session was created in). Fall back to env /
+  // beta default so the iframe origin still matches the beta API even if the
+  // prop is missing.
   const checkoutUrl =
+    checkoutUrlProp ||
     process.env.NEXT_PUBLIC_LOCUS_CHECKOUT_URL ||
-    "https://checkout.paywithlocus.com";
+    "https://beta-checkout.paywithlocus.com";
 
   return (
     <div className="min-h-[700px] w-full">

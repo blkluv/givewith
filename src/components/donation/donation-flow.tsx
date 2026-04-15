@@ -33,6 +33,7 @@ export function DonationFlow({ charity }: DonationFlowProps) {
   const [state, setState] = useState<FlowState>("selecting");
   const [amount, setAmount] = useState(0.5);
   const [sessionId, setSessionId] = useState<string | null>(null);
+  const [checkoutUrl, setCheckoutUrl] = useState<string | undefined>(undefined);
 
   useEffect(() => {
     refreshBalance();
@@ -64,6 +65,7 @@ export function DonationFlow({ charity }: DonationFlowProps) {
 
       const data = await res.json();
       setSessionId(data.sessionId);
+      setCheckoutUrl(data.checkoutUrl);
       setState("checkout");
     } catch (error: unknown) {
       const message =
@@ -87,6 +89,7 @@ export function DonationFlow({ charity }: DonationFlowProps) {
         <div className="border border-border bg-card">
           <CheckoutWrapper
             sessionId={sessionId}
+            checkoutUrl={checkoutUrl}
             onSuccess={() => {
               setState("success");
               router.push(`/donate/success?sessionId=${sessionId}`);

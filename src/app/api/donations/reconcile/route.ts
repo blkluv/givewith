@@ -30,9 +30,10 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Decrypt failed" }, { status: 500 });
   }
 
-  // Pull the user's recent Locus txs and index by id
+  // Pull the user's recent Locus txs and index by id. The listing endpoint
+  // uses `id` (not `transaction_id` like /pay/send's response).
   const txs = await getTransactions(apiKey, { limit: 50 });
-  const byId = new Map(txs.map((t) => [t.transaction_id, t]));
+  const byId = new Map(txs.map((t) => [t.id, t]));
 
   // Scan Firestore donations that might be stale
   const donationsSnap = await adminDb

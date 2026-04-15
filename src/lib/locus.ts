@@ -199,16 +199,31 @@ export async function sendEmailPayment(
 
 // ─── Transaction History ──────────────────────────────────────────────────────
 
+// NOTE: the /pay/transactions listing uses different field names than
+// /pay/send's response. Listing returns `id` + `amount_usdc`; the send
+// response returns `transaction_id` + `amount`. To correlate a send with its
+// listing entry, match `tx.id === sendResult.transaction_id`.
 export interface Transaction {
-  transaction_id: string;
+  id: string;
   status: string;
-  amount: number;
-  token: string;
-  from_address: string;
+  amount_usdc: string;
+  memo?: string;
   to_address: string;
-  tx_hash?: string;
+  to_ens_name?: string | null;
+  recipient_email?: string | null;
+  tx_hash?: string | null;
   category: string;
   created_at: string;
+}
+
+interface TransactionsListResponse {
+  transactions: Transaction[];
+  pagination: {
+    total: number;
+    limit: number;
+    offset: number;
+    has_more: boolean;
+  };
 }
 
 export async function getTransactions(
@@ -220,10 +235,13 @@ export async function getTransactions(
   if (params?.offset) query.set("offset", String(params.offset));
   if (params?.status) query.set("status", params.status);
   const qs = query.toString();
-  return locusRequest<Transaction[]>(
+  // Locus returns { transactions, pagination } under `data` — unwrap to the
+  // array so callers get a flat list.
+  const res = await locusRequest<TransactionsListResponse>(
     `/pay/transactions${qs ? `?${qs}` : ""}`,
     { apiKey },
   );
+  return res.transactions;
 }
 
 // ─── Checkout Sessions ────────────────────────────────────────────────────────

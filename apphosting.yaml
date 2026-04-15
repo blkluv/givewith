@@ -38,7 +38,7 @@ env:
       - BUILD
       - RUNTIME
   - variable: NEXT_PUBLIC_LOCUS_CHECKOUT_URL
-    value: https://checkout.paywithlocus.com
+    value: https://beta-checkout.paywithlocus.com
     availability:
       - BUILD
       - RUNTIME
