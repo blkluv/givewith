@@ -36,7 +36,7 @@ export async function POST(request: NextRequest) {
       donorApiKey,
       email,
       amount,
-      `Invitation to join GiveWithLocus — a donor wants to support ${charityName}. Claim your funds and join.`,
+      `Invitation to join BLKLUV.ORG — a donor wants to support ${charityName}. Claim your funds and join.`,
     );
 
     return NextResponse.json({

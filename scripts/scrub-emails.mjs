@@ -2,7 +2,7 @@
  * Replace real charity contact emails with safe demo emails so the agent's
  * recruit_charity tool can't accidentally email a real org's inbox.
  *
- * Sets each charity's contactEmail to `{slug}@givewithlocus.demo`.
+ * Sets each charity's contactEmail to `{slug}@blkluv.org`.
  *
  * Usage:
  *   node scripts/scrub-emails.mjs
@@ -28,7 +28,7 @@ console.log(`\nScrubbing emails for ${snap.size} charities…\n`);
 
 for (const doc of snap.docs) {
   const data = doc.data();
-  const demoEmail = `${slug(data.name)}@givewithlocus.demo`;
+  const demoEmail = `${slug(data.name)}@blkluv.org`;
   await doc.ref.update({
     contactEmail: demoEmail,
     originalContactEmail: data.contactEmail, // preserve for reference
@@ -36,5 +36,5 @@ for (const doc of snap.docs) {
   console.log(`  ${data.name}: ${data.contactEmail} → ${demoEmail}`);
 }
 
-console.log("\n✓ All contact emails scrubbed to @givewithlocus.demo\n");
+console.log("\n✓ All contact emails scrubbed to @blkluv.org\n");
 process.exit(0);

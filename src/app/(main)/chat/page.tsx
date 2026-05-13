@@ -34,7 +34,7 @@ const STARTERS = [
   },
   {
     label: "Recruit a new charity",
-    prompt: "How do I invite a charity not yet on GiveWithLocus?",
+    prompt: "How do I invite a charity not yet on BLKLUV.ORG?",
   },
 ];
 

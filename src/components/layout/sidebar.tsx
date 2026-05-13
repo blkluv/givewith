@@ -92,7 +92,7 @@ export function SidebarContent() {
               className="flex items-center gap-2"
               aria-label="GiveWithLocus"
             >
-              <span className="type-wordmark text-foreground">GiveWith</span>
+              <span className="type-wordmark text-foreground">BLKLUV.ORG</span>
               <LocusWordmark className="text-foreground" height={18} />
             </Link>
             <button

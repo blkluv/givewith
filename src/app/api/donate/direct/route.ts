@@ -51,7 +51,7 @@ export async function POST(request: NextRequest) {
       donorApiKey,
       charityData.locusWalletAddress,
       amount,
-      memo || `Donation to ${charityData.name} via GiveWithLocus`,
+      memo || `Donation to ${charityData.name} via BLKLUV.ORG`,
     );
 
     // Record donation in Firestore

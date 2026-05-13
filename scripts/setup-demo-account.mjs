@@ -17,7 +17,7 @@ import * as crypto from "crypto";
 import * as dotenv from "dotenv";
 dotenv.config({ path: ".env.local" });
 
-const DEMO_EMAIL = "demo@givewithlocus.demo";
+const DEMO_EMAIL = "info@blkluv.org";
 const DEMO_PASSWORD = "locus-demo-public-2026";
 const DEMO_DISPLAY_NAME = "Demo Explorer";
 const TARGET_BALANCE = 3.0;

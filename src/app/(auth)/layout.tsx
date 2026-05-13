@@ -13,9 +13,9 @@ export default function AuthLayout({
         <Link
           href="/"
           className="flex items-center gap-2.5"
-          aria-label="GiveWithLocus"
+          aria-label="BLKLUV.ORG"
         >
-          <span className="type-wordmark-lg text-foreground">GiveWith</span>
+          <span className="type-wordmark-lg text-foreground">BLKLUV.ORG</span>
           <LocusWordmark className="text-foreground" height={22} />
         </Link>
       </header>
@@ -28,7 +28,7 @@ export default function AuthLayout({
       {/* Footer strip */}
       <footer className="border-t border-border px-6 py-4 text-center">
         <p className="type-caption text-muted-foreground">
-          On-chain giving · Powered by Locus
+          On-chain giving · Powered by LUV
         </p>
       </footer>
     </div>

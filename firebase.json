@@ -4,7 +4,7 @@
     "indexes": "firestore.indexes.json"
   },
   "apphosting": {
-    "backendId": "givewithlocus",
+    "backendId": "blkluvorg",
     "rootDir": "/",
     "ignore": [
       "node_modules",
@@ -20,14 +20,14 @@
     ]
   },
   "hosting": {
-    "site": "givewithlocus",
+    "site": "blkluvorg",
     "public": "public-hosting-stub",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
       {
         "source": "**",
         "run": {
-          "serviceId": "givewithlocus",
+          "serviceId": "blkluvorg",
           "region": "us-central1"
         }
       }

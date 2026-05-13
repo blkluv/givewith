@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     template: "%s | BLKLUV.ORG",
   },
   description:
-    "Chat with an AI agent to discover, evaluate, and donate to high-impact charities. Every dollar traceable on-chain via Locus on Base.",
+    "Chat with an AI agent to discover, evaluate, and donate to high-impact charities. Every dollar traceable on-chain.",
   icons: {
     icon: "/locus-logo.svg",
   },

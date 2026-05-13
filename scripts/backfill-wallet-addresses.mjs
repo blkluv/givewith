@@ -158,9 +158,9 @@ for (const doc of snap.docs) {
   }
 
   const email =
-    typeof d.contactEmail === "string" && d.contactEmail.endsWith("@givewithlocus.demo")
+    typeof d.contactEmail === "string" && d.contactEmail.endsWith("@blkluv.org")
       ? d.contactEmail
-      : `${id.toLowerCase()}@givewithlocus.demo`;
+      : `${id.toLowerCase()}@blkluv.org`;
 
   try {
     const newWallet = await register(d.name, email);

@@ -50,10 +50,10 @@ export function LandingNav() {
               <Link
                 href="/"
                 className="flex items-center gap-2.5"
-                aria-label="GiveWithLocus"
+                aria-label="BLKLUV.ORG"
               >
                 <span className="type-wordmark-lg text-foreground">
-                  GiveWith
+                  BLKLUV.ORG
                 </span>
                 <LocusWordmark className="text-foreground" height={22} />
               </Link>

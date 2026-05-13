@@ -118,9 +118,9 @@ async function main() {
     // already scrubbed by scripts/scrub-emails.mjs. Never pass a real inbox.
     const registrationEmail =
       typeof data.contactEmail === "string" &&
-      data.contactEmail.endsWith("@givewithlocus.demo")
+      data.contactEmail.endsWith("@blkluv.org")
         ? data.contactEmail
-        : `${id.toLowerCase()}@givewithlocus.demo`;
+        : `${id.toLowerCase()}@blkluv.org`;
     console.log(`  email: ${registrationEmail}`);
     try {
       const wallet = await registerWallet(data.name, registrationEmail);

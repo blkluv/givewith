@@ -27,7 +27,7 @@ const FAQ = [
   },
   {
     q: "What if the charity I want isn't on the platform?",
-    a: "The agent can invite them. It sends a $0.50 USDC escrow to their contact email via Locus — they get a link to claim the funds and auto-register as a charity on GiveWithLocus. That's the recruitment flywheel built into the product.",
+    a: "The agent can invite them. It sends a $0.50 USDC escrow to their contact email via Locus — they get a link to claim the funds and auto-register as a charity on BLKLUV.ORG. That's the recruitment flywheel built into the product.",
   },
   {
     q: "How much does this cost the donor?",
