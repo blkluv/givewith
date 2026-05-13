@@ -22,8 +22,8 @@ const instrumentSerif = Instrument_Serif({
 
 export const metadata: Metadata = {
   title: {
-    default: "GiveWithLocus — Give with intent",
-    template: "%s | GiveWithLocus",
+    default: "BLKLUV.ORG — Give with intent",
+    template: "%s | BLKLUV.ORG",
   },
   description:
     "Chat with an AI agent to discover, evaluate, and donate to high-impact charities. Every dollar traceable on-chain via Locus on Base.",
